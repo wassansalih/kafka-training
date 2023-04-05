@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+package com.kafka.demo.proto;
+
+message Request {
+  optional string accountId = 1;
+  optional int32 amount = 2;
+  optional TransactionType type = 3;
+  optional TransactionDirection direction = 4;
+
+  enum TransactionType {
+    CARD = 0;
+    BANK_TRANSFER = 1;
+  }
+
+  enum TransactionDirection {
+    DEBIT = 0;
+    CREDIT = 1;
+  }
+
+}

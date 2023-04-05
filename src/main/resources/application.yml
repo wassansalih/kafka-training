@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: randomProducer
+      kafka:
+        binder:
+          brokers: localhost
+          defaultBrokerPort: 9092
+          producer-properties:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+            value.serializer: io.confluent.kafka.serializers.protobuf.KafkaProtobufSerializer
+            schema.registry.url: http://localhost:8081
+      bindings:
+        randomProducer-out-0:
+          destination: transaction-request
+          producer:
+            use-native-encoding: true
+
+

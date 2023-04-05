@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+package com.kafka.demo.proto;
+
+message TransactionApproval {
+  required string id = 1;
+  required int64 amount = 2;
+  required string accountId = 3;
+  required TransactionDirection transactionDirection = 5;
+  repeated TransactionType transactionType = 6;
+}
+
+enum TransactionDirection {
+  UNUSED_TD = 0;
+  DEBIT = 1;
+  CREDIT = 2;
+}
+
+enum TransactionType {
+  CARD = 0;
+  BANK_TRANSFER = 1;
+}
